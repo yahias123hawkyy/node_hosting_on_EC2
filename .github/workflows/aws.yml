@@ -46,6 +46,7 @@ jobs:
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
             chmod 777 private.pem
             cat private.pem
+            echo "Hello"
             
       shell: bash
       
