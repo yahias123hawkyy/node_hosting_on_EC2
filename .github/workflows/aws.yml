@@ -47,7 +47,7 @@ jobs:
             chmod 777 private.pem
             cat private.pem
             echo "Hello"
-            ssh -i private.pem ubuntu@54.197.85.238
+            ssh -i private.pem ubuntu@54.197.85.238 -y
             
       shell: bash
       
