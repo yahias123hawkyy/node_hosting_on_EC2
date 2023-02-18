@@ -35,13 +35,40 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      MYVAR: |
+        MIIEpAIBAAKCAQEAjrcaMG9C5zfjbz60gU1v28gQWxtAbTgtCF3vnuUbdzk45m8t
+        8uwGqjMfOOGNqd0XUFIKohviQo71yhb0L+JxD4xv8pStyfyQG7sOi1Cre2jtyQua
+        QXRRYO3Y3F8Otb5dEGC7iHTQ2MUB7MxIacBKCvnfUnrK7Cts/9+CXGvWFWkl/qZO
+        ipYmWDM7Ncs2GU7gZW5hlvgpHoFab9iwkV8R0HjU6INPIh63Rsm78l86OEnWdS9F
+        NlxOxLq6GHUCijjXnY+yiFmtFXMtBmzKsyGQe919VRuQU35TMh4N/KrbSiSCSIWT
+        0vgeKYCCQzrkqyw3gXe/vTQjZrzzJwI+ytaa6QIDAQABAoIBAFQ8Ks8PvLNwv2L3
+        5d6z8CQPL+g2a46Lq7jWiQqGO/Hg6n7IfJx3R2/KANG3/7+U6Z/U7MXGI4QZkWWY
+        qsRgqU7+G01ZCELCOeTEQc9k6/JJeqBBouijWS0W9fsMeEg5dgCmt8nQ+TwY/Avi
+        f5M7lfhoh7HNHFzNPObB69XVKGU16I/txh6HHKxs4QMsI3/Dv+yaAlpx4+X9C0v8
+        iES5O5F6J849XNnryzwLq4+959rd/OFQtUXUr+QqxeKbSHWgyP/NL9yEbOhl3gvp
+        L2BeGX7GP8ATL7FUZnCfkSSvtYE3ERtDC/gmBcnJOuIVHsG5ZXJoGoFpXc1oPBF5
+        /UVR5ukCgYEA3vK4aEHX5KTfF+JHeG7PWpYrZgaluHM+e89wZYc3x11PAypm/gXA
+        UAOY1g9Fykfa8NxkiESlkbDqVL2PcrkRtBRQ9Kdk/Kmtc0lfSqQrvhLg+BoT3YSt
+        zcpDfgDj6iA77pO2OZ8XbX9cj3O0JDii7Y79CTtWxvHPPkY+6h+MoBMCgYEAo99m
+        lhWd+qAjpQARAXLpTtMMMSdiZo6w/7yP0ISJvT37f2KCRH0AYSX/1ZIjMejZlO1f
+        oJ2E4UJjOVX3FFFgU/aWaCZ4Vumuuz+2L6pGxmYumjvzTZnbLX9tYQ9Ldf7SNK6T
+        Ig9wTXKl1+tcp8Glyq7fRmaFCqpjl0wRZHpEkJMCgYEAiNYwmMzQ1WTcCKy5cRGR
+        8ud4e4ZY8HzLPPJ06du0QIjklezQidi90F5kz/1PuHehyXN7wKdhd6o+KQSvppow
+        Y3aUuZSERw9dhgTil81ri53KtnxK9QsaIdSi2BNzz585KZU/ot4iYvJovSMmzZR1
+        a5j3dVMWT8Tajj5PHyN+DEECgYBxZLPS5NB1TXx8v2gFDaPdlHJaTPttJg3aWHtX
+        eW7qUUqHIf4sMCckEixOd5n8/jgZMow6UuVRDiQk15RqLckvMHFxTjV1RqxPC84g
+        e34P6UMUHKnGJ9GfUQ652+CGnLaOF8LeDbrTDKMvnsB1oKz9bDY5u9URxUe2uL9M
+        PMLXGwKBgQCSFQpKOjxVppb7SBZ3aS6LBzghUatI1EH2o684w0925VlmlzORKPFP
+        E3PVjaRA53CUZn2xoHMUbyq80rez/91jZCXqc3V964HHjfP4RG8bj8kAJZ0qURvM
+        n2gggp74n3ajRi3SAb0PTeGUGW5XbC/BtFZdye4wxUJ/GrBSqz+VJg==
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
       
     - name: ssh to instance
-      run: ssh -i ${ secrets.SSH_PRIVATE_KEY }} ubuntu@54.197.85.238
+      run: ssh -i $MYVAR ubuntu@54.197.85.238
       
     - name: Deploy to EC2
       uses: appleboy/scp-action@master
