@@ -45,9 +45,6 @@ jobs:
             touch private.pem
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
             chmod 777 private.pem
-            ssh -i private.pem ubuntu@54.197.85.238
-            scp -r /home/ubuntu/node_hosting_on_EC2 /var/www/html
-            systemctl sudo systemctl restart nginx
       shell: bash
       
     - name: Deploy to EC2
