@@ -45,6 +45,8 @@ jobs:
             touch private.pem
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
             chmod 777 private.pem
+            cat private.pem
+            
       shell: bash
       
     - name: Deploy to EC2
