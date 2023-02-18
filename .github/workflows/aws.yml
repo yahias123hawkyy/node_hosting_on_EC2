@@ -45,7 +45,9 @@ jobs:
            sudo touch private.pem
            sudo  echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
            sudo chmod 777 private.pem
-           ssh -i private.pem ubuntu@54.197.85.238
+           sudo ssh -i private.pem ubuntu@54.197.85.238
+           sudo scp -r /home/ubuntu/node_hosting_on_EC2 /var/www/html
+           sudo systemctl sudo systemctl restart nginx
       shell: bash
       
     - name: Deploy to EC2
@@ -53,7 +55,7 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         ARGS: "-rltgoDzvO --delete"
-        SOURCE: "/home/ubuntu/node_hosting_on_EC2/"
+        SOURCE: "/home/ubuntu/node_hosting_on_EC2"
         REMOTE_HOST: 54.197.85.238
         REMOTE_USER: ubuntu
         TARGET: "/var/www/html/"
