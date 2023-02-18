@@ -3204,6 +3204,7 @@ h3 {
 /* line 133, ../../Arafath/CL/Cl November/228. Resume-02/HTML/scss/_contact.scss */
 .contact-section {
   padding: 130px 0 100px;
+  background-color: white;
 }
 
 @media (max-width: 991px) {
@@ -6239,4 +6240,11 @@ h6 {
     color: #C9C9C9;
     line-height: 28px;
     margin-bottom: 0;
+  }
+
+
+
+  button, input, optgroup, select, textarea p{
+
+    color: red;
   }
