@@ -30,7 +30,9 @@ jobs:
             chmod 777 known_hosts 
             ssh-keyscan -t rsa 54.197.85.238 >> ~/.ssh/known_hosts
             cd ~
-            sudo ssh -i private.pem ubuntu@54.197.85.238 
+            echo "mesh akher  Hello1dd"
+            
+            ssh -i private.pem ubuntu@54.197.85.238 
             
       shell: bash
       
