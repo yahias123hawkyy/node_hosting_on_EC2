@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -32,7 +32,6 @@ jobs:
             cat known_hosts
             cd ~
             echo "mesh akher  Hello1dd"
-            
             sudo ssh -o StrictHostKeyChecking=no ubuntu@54.197.85.238 
             
       shell: bash
