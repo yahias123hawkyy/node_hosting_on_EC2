@@ -1,0 +1,38 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Add SSH host key to known_hosts
+      run: ssh-keyscan <54.197.85.238> >> ~/.ssh/known_hosts
+
+      
+    - name : ssh to server
+      run: |
+            touch private.pem
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
+            chmod 777 private.pem
+            cat private.pem
+            echo "mesh Hello"
+            ssh-keyscan 54.197.85.238 > ~/.ssh/known_hosts
+            ssh -i private.pem ubuntu@54.197.85.238 -yes
+            
+      shell: bash
+      
+    - name: Deploy to EC2
+      uses: appleboy/scp-action@master
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        ARGS: "-rltgoDzvO --delete"
+        SOURCE: "/home/ubuntu/node_hosting_on_EC2"
+        REMOTE_HOST: 54.197.85.238
+        REMOTE_USER: ubuntu
+        TARGET: "/var/www/html/"
