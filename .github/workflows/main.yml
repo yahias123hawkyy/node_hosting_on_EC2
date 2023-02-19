@@ -21,7 +21,8 @@ jobs:
             chmod 777 private.pem
             cat private.pem
             echo "mesh Hello"
-            ssh-keyscan 54.197.85.238 > ~/.ssh/known_hosts
+            touch authorized_keys
+            ssh-keyscan 54.197.85.238 > ~/.ssh/authorized_keys
             ssh -i private.pem ubuntu@54.197.85.238 -yes
             
       shell: bash
