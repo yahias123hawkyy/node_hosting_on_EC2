@@ -49,6 +49,7 @@ jobs:
             echo "mesh Hello"
             touch authorized_keys
             chmod 777 private.pem
+            cd ~
             cd .ssh
             echo "mesh Hello"
             ssh-keyscan 54.197.85.238 > ~/.ssh/known_hosts
