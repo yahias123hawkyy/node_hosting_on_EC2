@@ -35,7 +35,7 @@ jobs:
             cd ~
             cat private.pem >> ~/.ssh/id_rsa
             echo "mesh akher  Hello1dd"
-            sudo ssh -o StrictHostKeyChecking=no ubuntu@54.197.85.238 
+            sudo ssh -i private.pem ubuntu@54.197.85.238 
             
       shell: bash
       
