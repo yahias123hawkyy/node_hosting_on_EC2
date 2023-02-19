@@ -21,7 +21,7 @@ jobs:
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
             chmod 777 private.pem
             cat private.pem
-            echo "mesh Hello1"
+            echo "mesh Hello1dd"
             cd ~
             mkdir .ssh
             chmod 777 .ssh 
