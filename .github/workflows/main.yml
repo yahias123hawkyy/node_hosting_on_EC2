@@ -30,7 +30,7 @@ jobs:
             chmod 777 known_hosts 
             ssh-keyscan -t rsa 54.197.85.238 >> ~/.ssh/known_hosts
             cd ~
-            ssh -i private.pem ubuntu@54.197.85.238 
+            sudo ssh -i private.pem ubuntu@54.197.85.238 
             
       shell: bash
       
