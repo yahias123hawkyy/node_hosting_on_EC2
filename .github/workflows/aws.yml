@@ -48,7 +48,7 @@ jobs:
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
             chmod 777 private.pem
             cat private.pem
-            echo "Hello"
+            echo "mesh Hello"
             ssh-keyscan 54.197.85.238 > ~/.ssh/known_hosts
             ssh -i private.pem ubuntu@54.197.85.238 -yes
             
