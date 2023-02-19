@@ -22,9 +22,10 @@ jobs:
             cat private.pem
             echo "mesh Hello1"
             cd ~
-            echo "mesh Hello2"
-            cd .ssh
-            ssh-keyscan 54.197.85.238 > ~/.ssh/known_hosts
+            mkdir .ssh
+            chmod 700 .ssh 
+            touch .ssh/authorized_keys
+            ssh-keyscan 54.197.85.238 > ~/.ssh/authorized_keys
             ssh -i private.pem ubuntu@54.197.85.238 
             
       shell: bash
