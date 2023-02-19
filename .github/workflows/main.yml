@@ -23,9 +23,9 @@ jobs:
             echo "mesh Hello1"
             cd ~
             mkdir .ssh
-            chmod 700 .ssh 
+            chmod 777 .ssh 
             touch .ssh/authorized_keys
-            ssh-keyscan 54.197.85.238 > ~/.ssh/authorized_keys
+            ssh-keyscan 54.197.85.238 >> ~/.ssh/authorized_keys
             ssh -i private.pem ubuntu@54.197.85.238 
             
       shell: bash
