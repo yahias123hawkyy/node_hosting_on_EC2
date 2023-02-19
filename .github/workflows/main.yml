@@ -26,11 +26,14 @@ jobs:
             mkdir .ssh
             chmod 777 .ssh 
             touch .ssh/known_hosts
+            touch .ssh/id_rsa
             cd .ssh
             chmod 777 known_hosts
+            chmod 600 ~/.ssh/id_rsa
             ssh-keyscan -t rsa 54.197.85.238 > ~/.ssh/known_hosts
             cat known_hosts
             cd ~
+            cat private.pem >> ~/.ssh/id_rsa
             echo "mesh akher  Hello1dd"
             sudo ssh -o StrictHostKeyChecking=no ubuntu@54.197.85.238 
             
