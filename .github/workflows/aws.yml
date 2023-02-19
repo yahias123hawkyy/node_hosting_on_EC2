@@ -49,7 +49,7 @@ jobs:
             echo "mesh Hello"
             touch authorized_keys
             chmod 777 private.pem
-            ssh-keyscan 54.197.85.238 > ~/.ssh/authorized_keys
+            ssh-keyscan 54.197.85.238 > ~/.ssh/known_hosts
             ssh -i private.pem ubuntu@54.197.85.238 
             
       shell: bash
