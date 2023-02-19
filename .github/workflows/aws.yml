@@ -49,7 +49,7 @@ jobs:
             chmod 777 private.pem
             cat private.pem
             echo "Hello"
-            ssh-keyscan 54.197.85.238 >> ~/.ssh/known_hosts
+            ssh-keyscan 54.197.85.238 > ~/.ssh/known_hosts
             ssh -i private.pem ubuntu@54.197.85.238 -yes
             
       shell: bash
