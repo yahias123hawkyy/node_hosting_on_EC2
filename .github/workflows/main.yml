@@ -26,6 +26,7 @@ jobs:
             mkdir .ssh
             chmod 777 .ssh 
             touch .ssh/authorized_keys
+            cd .ssh
             chmod 777 authorized_keys 
             ssh-keyscan 54.197.85.238 >> ~/.ssh/authorized_keys
             cd ~
