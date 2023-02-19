@@ -16,6 +16,7 @@ jobs:
       
     - name : ssh to server
       run: |
+            cd ~
             touch private.pem
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
             chmod 777 private.pem
@@ -26,6 +27,7 @@ jobs:
             chmod 777 .ssh 
             touch .ssh/authorized_keys
             ssh-keyscan 54.197.85.238 >> ~/.ssh/authorized_keys
+            cd ~
             ssh -i private.pem ubuntu@54.197.85.238 
             
       shell: bash
