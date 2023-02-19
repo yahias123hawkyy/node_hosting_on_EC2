@@ -38,8 +38,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Add SSH host key to known_hosts
-      run: ssh-keyscan <54.197.85.238> >> ~/.ssh/known_hosts
 
       
     - name : ssh to server
@@ -49,8 +47,10 @@ jobs:
             chmod 777 private.pem
             cat private.pem
             echo "mesh Hello"
-            ssh-keyscan 54.197.85.238 > ~/.ssh/known_hosts
-            ssh -i private.pem ubuntu@54.197.85.238 -yes
+            touch authorized_keys
+            chmod 777 private.pem
+            ssh-keyscan 54.197.85.238 > ~/.ssh/authorized_keys
+            ssh -i private.pem ubuntu@54.197.85.238 
             
       shell: bash
       
