@@ -38,7 +38,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      
+    - name: Add SSH host key to known_hosts
+      run: ssh-keyscan <your-ec2-instance-ip> >> ~/.ssh/known_hosts
+
       
     - name : ssh to server
       run: |
