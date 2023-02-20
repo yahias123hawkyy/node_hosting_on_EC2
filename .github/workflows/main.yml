@@ -24,13 +24,11 @@ jobs:
             echo "mesh Helldo1dd"
             cd ~
             mkdir .ssh
-            chmod 777 .ssh 
             touch .ssh/known_hosts
-            touch .ssh/id_rsa
             cd .ssh
             chmod 777 known_hosts
-            chmod 600 ~/.ssh/id_rsa
-            ssh-keyscan -t rsa 54.197.85.238 > ~/.ssh/known_hosts
+            chmod 777 ~/.ssh/id_ecdsa
+            ssh-keyscan -t ecdsa 54.197.85.238 >> ~/.ssh/known_hosts
             cat known_hosts
             cd ~
             cat private.pem >> ~/.ssh/id_rsa
