@@ -27,12 +27,10 @@ jobs:
             cd .ssh
             touch known_hosts
             chmod 777 known_hosts
-            chmod 777 known_hosts
             cd ~
             ssh-keyscan -t ecdsa 54.197.85.238 >> ~/.ssh/known_hosts
             cat known_hosts
             cd ~
-            cat private.pem >> ~/.ssh/id_rsa
             echo "mesh akher  Hello1dd"
             sudo ssh -i private.pem ubuntu@54.197.85.238 
             
