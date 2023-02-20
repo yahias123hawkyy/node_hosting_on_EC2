@@ -11,9 +11,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Add host key
-      run: ssh-keyscan 54.197.85.238  >> $HOME/.ssh/known_hosts
- 
+  
       
     - name : ssh to server
       run: |
