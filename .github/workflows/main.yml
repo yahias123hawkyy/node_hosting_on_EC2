@@ -15,7 +15,7 @@ jobs:
       
     - name : ssh to server and do the whole deployment
       run: |
-            sudo cd ~
+            cd ~
             sudo scp -r node_hosting_on_EC2 /var/www
             sudo systemctl restart nginx
       shell: bash
