@@ -13,34 +13,10 @@ jobs:
       uses: actions/checkout@v2
   
       
-    - name : ssh to server
+    - name : ssh to server and do the whole deployment
       run: |
-            cd ~
-            touch private.pem
-            echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.pem
-            chmod 777 private.pem
-            cat private.pem
-            echo "mesh Helldo1dd"
-            cd ~
-            mkdir .ssh
-            cd .ssh
-            touch known_hosts
-            chmod 777 known_hosts
-            cd ~
-            echo "${{ secrets.KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
-            cd ~
-            echo "mesh akher  Hello1dd"
-            sudo ssh -i private.pem ubuntu@54.197.85.238 
-            
+            sudo cd ~
+            sudo scp -r node_hosting_on_EC2 /var/www
+            sudo systemctl restart nginx
       shell: bash
       
-    - name: Deploy to EC2
-      uses: appleboy/scp-action@master
-      env:
-        KNOWN_HOSTS: ${{ secrets.KNOWN_HOSTS }}
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        ARGS: "-rltgoDzvO --delete"
-        SOURCE: "/home/ubuntu/node_hosting_on_EC2"
-        REMOTE_HOST: 54.197.85.238
-        REMOTE_USER: ubuntu
-        TARGET: "/var/www/html/"
