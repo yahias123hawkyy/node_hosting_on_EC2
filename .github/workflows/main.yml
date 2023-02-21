@@ -9,13 +9,14 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-  
-      
+    
+    - uses: actions/checkout@v2
     - name : ssh to server and do the whole deployment
       run: |
             cd ~
+            sudo rm -r node_hosting_on_EC2
+            git clone https://github.com/yahias123hawkyy/node_hosting_on_EC2.git
+            cat node_hosting_on_EC2/front-end/jony-master/index.html
             sudo scp -r node_hosting_on_EC2 /var/www
             sudo systemctl restart nginx
       shell: bash
